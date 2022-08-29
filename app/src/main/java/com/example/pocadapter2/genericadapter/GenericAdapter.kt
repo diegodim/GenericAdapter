@@ -19,9 +19,9 @@ open class GenAdapter<VH : GenericViewHolder<ViewBinding>>(
 
     @Suppress("UNCHECKED_CAST")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        val inflater = LayoutInflater.from(parent.context)
         val item: GenericItemViewBinding<ViewBinding> = getItemByType(viewType)
-        val itemView: View = inflater.inflate(item.layoutId, parent, false)
+        val itemView: View =
+            LayoutInflater.from(parent.context).inflate(item.layoutId, parent, false)
         return item.createViewHolder(itemView) as? VH ?: throw InvalidCastException()
     }
 
@@ -31,17 +31,17 @@ open class GenAdapter<VH : GenericViewHolder<ViewBinding>>(
 
     override fun getItemViewType(position: Int): Int = getItem(position).getViewType()
 
-
     private fun getItemByType(viewType: Int): GenericItemViewBinding<ViewBinding> {
-        lastItemType?.let {
-            if (it.getViewType() == viewType) {
-                return it
+        lastItemType?.let { lastItem ->
+            if (lastItem.getViewType() == viewType) {
+                return lastItem
             }
         }
         this.currentList.firstOrNull { item ->
             item.getViewType() == viewType
-        }?.toGenericItem()?.let { item ->
-            return item
+        }?.toGenericItem()?.let { foundItem ->
+            lastItemType = foundItem
+            return foundItem
         }
         throw NotFoundViewTypeException(viewType)
     }

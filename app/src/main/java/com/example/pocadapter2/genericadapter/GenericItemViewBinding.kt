@@ -5,9 +5,7 @@ import androidx.viewbinding.ViewBinding
 
 abstract class GenericItemViewBinding<VB : ViewBinding> : GenericItem {
 
-    override fun getViewType(): Int {
-        return layoutId
-    }
+    override fun getViewType(): Int = layoutId
 
     open fun createViewHolder(itemView: View): GenericViewHolder<VB> {
         val binding: VB = setupViewBinding(itemView)
