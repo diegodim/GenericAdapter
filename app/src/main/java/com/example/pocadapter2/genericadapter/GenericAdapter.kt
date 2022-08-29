@@ -29,11 +29,8 @@ open class GenAdapter<VH : GenericViewHolder<ViewBinding>>(
         getItem(position).toGenericItem()?.bind(holder, position, onClickItem)
     }
 
-    override fun getItemViewType(position: Int): Int {
-        getItem(position).toGenericItem()?.let {
-            return it.getViewType()
-        } ?: throw InvalidCastException()
-    }
+    override fun getItemViewType(position: Int): Int = getItem(position).getViewType()
+
 
     private fun getItemByType(viewType: Int): GenericItemViewBinding<ViewBinding> {
         lastItemType?.let {
