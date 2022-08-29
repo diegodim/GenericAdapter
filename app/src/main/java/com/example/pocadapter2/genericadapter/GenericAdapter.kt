@@ -1,12 +1,12 @@
-package com.example.pocadapter2.generiadapter
+package com.example.pocadapter2.genericadapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.viewbinding.ViewBinding
-import com.example.pocadapter2.generiadapter.exception.InvalidCastException
-import com.example.pocadapter2.generiadapter.exception.NotFoundViewTypeException
+import com.example.pocadapter2.genericadapter.exception.InvalidCastException
+import com.example.pocadapter2.genericadapter.exception.NotFoundViewTypeException
 
 class GenericAdapter(onClickItem: (item: GenericItem) -> Unit = {}) :
     GenAdapter<GenericViewHolder<ViewBinding>>(onClickItem)

@@ -5,8 +5,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pocadapter2.databinding.ActivityMainBinding
-import com.example.pocadapter2.generiadapter.GenericAdapter
-import com.example.pocadapter2.generiadapter.GenericItem
+import com.example.pocadapter2.genericadapter.GenericAdapter
+import com.example.pocadapter2.genericadapter.GenericItem
 
 class MainActivity : AppCompatActivity() {
 

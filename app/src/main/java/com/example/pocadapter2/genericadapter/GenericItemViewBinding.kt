@@ -1,4 +1,4 @@
-package com.example.pocadapter2.generiadapter
+package com.example.pocadapter2.genericadapter
 
 import android.view.View
 import androidx.viewbinding.ViewBinding

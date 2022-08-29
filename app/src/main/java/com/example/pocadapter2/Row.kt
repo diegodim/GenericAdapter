@@ -2,7 +2,7 @@ package com.example.pocadapter2
 
 import android.view.View
 import com.example.pocadapter2.databinding.ItemRowBinding
-import com.example.pocadapter2.generiadapter.GenericItemViewBinding
+import com.example.pocadapter2.genericadapter.GenericItemViewBinding
 
 class Row(val text: String): GenericItemViewBinding<ItemRowBinding>() {
 

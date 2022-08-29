@@ -1,4 +1,4 @@
-package com.example.pocadapter2.generiadapter.exception
+package com.example.pocadapter2.genericadapter.exception
 
 import java.lang.RuntimeException
 
