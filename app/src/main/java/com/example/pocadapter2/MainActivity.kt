@@ -12,7 +12,8 @@ import com.example.pocadapter2.items.ImageItem
 import com.example.pocadapter2.items.RowItem
 
 
-const val imageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_akt-RGYq3jd3BACqKVave08XvdbgzH5Mcw&usqp=CAU"
+const val IMAGE_URL =
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_akt-RGYq3jd3BACqKVave08XvdbgzH5Mcw&usqp=CAU"
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,13 +24,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
         val list = arrayListOf<GenericItem>(
-            HeaderItem("Header1"),
+            HeaderItem("Header"),
+            ImageItem(IMAGE_URL)
         )
-        for(i in 1 ..3){
+        for(i in 1 ..20){
             list.add(RowItem("Row $i"))
         }
-        list.add(ImageItem(imageURL))
-        list.add(RowItem("Row 4"))
 
         val adapter = GenericAdapter { item ->
             when (item) {
