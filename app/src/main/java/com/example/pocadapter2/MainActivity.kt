@@ -8,6 +8,9 @@ import com.example.pocadapter2.databinding.ActivityMainBinding
 import com.example.pocadapter2.genericadapter.GenericAdapter
 import com.example.pocadapter2.genericadapter.GenericItem
 
+
+const val imageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_akt-RGYq3jd3BACqKVave08XvdbgzH5Mcw&usqp=CAU"
+
 class MainActivity : AppCompatActivity() {
 
     private var binding: ActivityMainBinding? = null
@@ -17,15 +20,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
         val list = arrayListOf<GenericItem>(
-            Header("Header1"),
+            HeaderItem("Header1"),
         )
-        for(i in 1 ..100){
-            list.add(Row("Row $i"))
+        for(i in 1 ..3){
+            list.add(RowItem("Row $i"))
         }
+        list.add(ImageItem(imageURL))
+        list.add(RowItem("Row 4"))
 
         val adapter = GenericAdapter { item ->
             when (item) {
-                is Row ->
+                is RowItem ->
                     Toast.makeText(this@MainActivity, item.text, Toast.LENGTH_LONG).show()
                 else -> Unit
             }
