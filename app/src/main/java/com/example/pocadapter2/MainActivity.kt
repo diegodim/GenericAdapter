@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pocadapter2.databinding.ActivityMainBinding
 import com.example.pocadapter2.genericadapter.GenericAdapter
 import com.example.pocadapter2.genericadapter.GenericItem
+import com.example.pocadapter2.items.HeaderItem
+import com.example.pocadapter2.items.ImageItem
+import com.example.pocadapter2.items.RowItem
 
 
 const val imageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_akt-RGYq3jd3BACqKVave08XvdbgzH5Mcw&usqp=CAU"
