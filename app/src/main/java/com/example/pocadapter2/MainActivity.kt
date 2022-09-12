@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = GenericAdapter { item ->
             when (item) {
                 is RowItem ->
-                    Toast.makeText(this@MainActivity, item.text, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@MainActivity, item.name, Toast.LENGTH_LONG).show()
                 else -> Unit
             }
         }

@@ -5,13 +5,13 @@ import com.example.pocadapter2.R
 import com.example.pocadapter2.databinding.ItemHeaderBinding
 import com.example.pocadapter2.genericadapter.GenericItemViewBinding
 
-class HeaderItem(private val text: String): GenericItemViewBinding<ItemHeaderBinding>() {
+class HeaderItem(private val title: String): GenericItemViewBinding<ItemHeaderBinding>() {
 
     override val layoutId: Int
         get() = R.layout.item_header
 
     override fun bind(binding: ItemHeaderBinding) {
-        binding.tvTitle.text = text
+        binding.tvTitle.text = title
     }
 
     override fun setupViewBinding(view: View): ItemHeaderBinding = ItemHeaderBinding.bind(view)
