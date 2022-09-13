@@ -8,12 +8,10 @@ import androidx.viewbinding.ViewBinding
 import com.example.pocadapter2.genericadapter.exception.InvalidCastException
 import com.example.pocadapter2.genericadapter.exception.NotFoundViewTypeException
 
-class GenericAdapter(onClickItem: (item: GenericItem) -> Unit = {}) :
-    GenAdapter<GenericViewHolder<ViewBinding>>(onClickItem)
+class GenericAdapter : GenAdapter<GenericViewHolder<ViewBinding>>()
 
-open class GenAdapter<VH : GenericViewHolder<ViewBinding>>(
-    private val onClickItem: (item: GenericItem) -> Unit = {}
-) : ListAdapter<GenericItem, VH>(GenericDiffUtils) {
+open class GenAdapter<VH : GenericViewHolder<ViewBinding>> :
+    ListAdapter<GenericItem, VH>(GenericDiffUtils) {
 
     private var lastItemType: GenericItemViewBinding<ViewBinding>? = null
 
@@ -26,7 +24,7 @@ open class GenAdapter<VH : GenericViewHolder<ViewBinding>>(
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        getItem(position).toGenericItem()?.bind(holder, position, onClickItem)
+        getItem(position).toGenericItem()?.bind(holder, position)
     }
 
     override fun getItemViewType(position: Int): Int = getItem(position).getViewType()

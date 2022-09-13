@@ -10,9 +10,9 @@ open class GenericViewHolder<VB : ViewBinding>(val binding: VB) :
     open fun bind(
         item: GenericItemViewBinding<VB>,
         position: Int,
-        onClickItem: (item: GenericItemViewBinding<VB>) -> Unit
+        onClickItem: () -> Unit
     ) {
         this.item = item
-        itemView.setOnClickListener { onClickItem(item) }
+        itemView.setOnClickListener { onClickItem() }
     }
 }

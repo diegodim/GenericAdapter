@@ -19,15 +19,16 @@ abstract class GenericItemViewBinding<VB : ViewBinding> : GenericItem {
     fun bind(
         viewHolder: GenericViewHolder<VB>,
         position: Int,
-        onClickItem: (item: GenericItemViewBinding<VB>) -> Unit
     ) {
-        viewHolder.bind(this, position, onClickItem)
-        bind(viewHolder.binding)
+        viewHolder.bind(this, position) { onClickItem() }
+        bind(viewHolder.binding, position)
     }
 
     abstract val layoutId: Int
 
-    abstract fun bind(binding: VB)
+    abstract fun bind(binding: VB, position: Int)
+
+    open fun onClickItem() = Unit
 
     abstract fun setupViewBinding(view: View): VB
 }

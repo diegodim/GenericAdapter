@@ -5,8 +5,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pocadapter2.databinding.ActivityMainBinding
+import com.example.pocadapter2.databinding.ItemRowBinding
 import com.example.pocadapter2.genericadapter.GenericAdapter
 import com.example.pocadapter2.genericadapter.GenericItem
+import com.example.pocadapter2.genericadapter.GenericItemViewBinding
 import com.example.pocadapter2.items.HeaderItem
 import com.example.pocadapter2.items.ImageItem
 import com.example.pocadapter2.items.RowItem
@@ -27,17 +29,13 @@ class MainActivity : AppCompatActivity() {
             HeaderItem("Header"),
             ImageItem(IMAGE_URL)
         )
-        for(i in 1 ..20){
-            list.add(RowItem("Row $i"))
+        for (i in 1..20) {
+            list.add(RowItem("Row $i") {
+                Toast.makeText(this@MainActivity, it, Toast.LENGTH_LONG).show()
+            } )
         }
 
-        val adapter = GenericAdapter { item ->
-            when (item) {
-                is RowItem ->
-                    Toast.makeText(this@MainActivity, item.name, Toast.LENGTH_LONG).show()
-                else -> Unit
-            }
-        }
+        val adapter = GenericAdapter()
         binding?.apply {
 
             recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
